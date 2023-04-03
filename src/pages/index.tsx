@@ -26,7 +26,7 @@ export default function Home({products}: IHomePage) {
       <main className={styles.main}>
         <h1>My first PWA app</h1>
 
-        <div className={styles.center}>
+        <div className={styles.cardsContainer}>
           {products.map(product => (
             <ProductCard id={product.id} title={product.title} price={product.price} key={product.id}/>
           ))}

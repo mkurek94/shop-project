@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/theme";
 import createEmotionCache from "@/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import { CartProvier } from "@/providers/CartProvider";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -32,8 +33,10 @@ export default function App({
         <meta name="theme-color" content="#1D4CB0" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Navbar />
-        <Component {...pageProps} />
+        <CartProvier>
+          <Navbar />
+          <Component {...pageProps} />
+        </CartProvier>
       </ThemeProvider>
     </CacheProvider>
   );

@@ -5,3 +5,10 @@
     height: 80px;
     align-items: center;
 }
+
+.accountDetails {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: space-between;
+}
