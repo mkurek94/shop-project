@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: #FFF;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background-color: #FFF;
+    margin: 0 auto;
+}

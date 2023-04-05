@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Cart.module.css";
 import { useContext, useMemo } from "react";
 import { CartContext } from "@/providers/CartProvider";
 import { CartItem } from "@/components/Cart/CartItem/CartItem";
@@ -15,24 +15,22 @@ const Cart = () => {
   }, [cartItems]);
 
   return (
-    <>
-      <div className={styles.container}>
-        <h1>Your cart</h1>
+    <div className={styles.container}>
+      <h1>Your cart</h1>
 
-        <div className={styles.cardsContainer}>
-          {cartItems.map((product) => (
-            <CartItem
-              productId={product.id}
-              key={product.id}
-              quantity={product.quantity}
-              price={product.price}
-            />
-          ))}
-        </div>
-
-        <h3>Final price: {finalPrice}</h3>
+      <div className={styles.cartItemsContainer}>
+        {cartItems.map((product) => (
+          <CartItem
+            productId={product.id}
+            key={product.id}
+            quantity={product.quantity}
+            price={product.price}
+          />
+        ))}
       </div>
-    </>
+
+      <h3>Final price: {finalPrice}</h3>
+    </div>
   );
 };
 

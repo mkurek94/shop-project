@@ -4,6 +4,9 @@
     padding: 20px;
     height: 80px;
     align-items: center;
+    width: 100vw;
+    background-color: #FFF;
+    margin-bottom: 20px;
 }
 
 .accountDetails {

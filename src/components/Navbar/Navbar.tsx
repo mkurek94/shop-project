@@ -2,10 +2,10 @@ import React, { useContext, useMemo } from 'react'
 import { CartContext } from '@/providers/CartProvider';
 import style from './Navbar.module.css';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export const Navbar = () => {
   const { cartItems } = useContext(CartContext);
-  const router = useRouter();
 
   const cartQuantity = useMemo(() => {
     let quantity = 0;
@@ -18,11 +18,11 @@ export const Navbar = () => {
 
   return (
     <nav className={style.navbar}>
-        <span>Logo</span>
+        <Link href="/">Logo</Link>
         <div>Search...</div>
         <div className={style.accountDetails}>
-            <span>Account</span>
-            <span onClick={() => router.push(`/cart`)}>Cart {cartQuantity}</span>
+        <Link href="/account">Account</Link>
+            <Link href="/cart">Cart {cartQuantity}</Link>
         </div>
     </nav>
   )

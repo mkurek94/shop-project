@@ -12,7 +12,10 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #FEFEFE;
+  background-color: #EFEFEF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a {

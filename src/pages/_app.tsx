@@ -8,6 +8,7 @@ import theme from "@/theme";
 import createEmotionCache from "@/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { CartProvier } from "@/providers/CartProvider";
+import { AccountProvier } from "@/providers/AccountProvider";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -33,10 +34,12 @@ export default function App({
         <meta name="theme-color" content="#1D4CB0" />
       </Head>
       <ThemeProvider theme={theme}>
-        <CartProvier>
-          <Navbar />
-          <Component {...pageProps} />
-        </CartProvier>
+        <AccountProvier>
+          <CartProvier>
+            <Navbar />
+            <Component {...pageProps} />
+          </CartProvier>
+        </AccountProvier>
       </ThemeProvider>
     </CacheProvider>
   );
