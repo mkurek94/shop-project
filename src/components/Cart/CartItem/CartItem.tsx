@@ -1,5 +1,4 @@
 import React, { useMemo, useContext } from "react";
-import { IProductDetails } from "@/types/product";
 import { getAvailabilityStatus } from "@/utils/getAvailabilityStatus";
 import { getProductDetails } from "@/utils/getProductDetails";
 import style from "./CartItem.module.css";

@@ -5,5 +5,8 @@ export interface IProductDetails {
     price: number;
     image: string;
     availability: number;
+}
+
+export interface ICartProducts extends IProductDetails {
     quantity: number;
 }

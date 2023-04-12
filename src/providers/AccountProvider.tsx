@@ -5,8 +5,10 @@ import React, {
   useState,
 } from "react";
 import { REGISTERED_USERS } from "@/mocks/registeredUsers";
+import { IAccount } from "@/types/acount";
 
 interface IAccountContextValue {
+  loggedUser: IAccount;
   isLogged: boolean;
   signIn: (email: string, password: string) => void;
 }
@@ -21,6 +23,7 @@ export const AccountContext = createContext<IAccountContextValue>(
 
 export const AccountProvier = ({ children }: AccountProviderProps) => {
   const [isLogged, setIsLogged] = useState(true);
+  const [loggedUser, setLoggedUser] = useState<IAccount>({} as IAccount);
 
   const signIn = useCallback(
     (email: string, password: string) => {
@@ -30,6 +33,7 @@ export const AccountProvier = ({ children }: AccountProviderProps) => {
 
       if (user) {
         setIsLogged(true);
+        setLoggedUser(user);
       }
     },
     [isLogged]
@@ -38,6 +42,7 @@ export const AccountProvier = ({ children }: AccountProviderProps) => {
   const value = {
     signIn,
     isLogged,
+    loggedUser,
   };
 
   return (
