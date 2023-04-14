@@ -5,10 +5,10 @@ import * as mocks from "@/mocks/productsResponse";
 import { IProductDetails } from "@/types/product";
 
 interface IProductDetailsPage {
-    params: {
-        productId: string;
-    }
-    dataResponse: IProductDetails,
+  params: {
+    productId: string;
+  };
+  dataResponse: IProductDetails;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //   params: { productId: id },
   // }))
 
-  const paths = mocks.productsResponse.map(({ id }) => ({
+  const paths = mocks.productsInDb.map(({ id }) => ({
     params: { productId: id },
   }));
   return {
@@ -27,22 +27,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    let dataResponse = {}
-    if (params?.productId) {
+  let dataResponse = {};
+  if (params?.productId) {
     //   const res = await getProductDetails(params?.productId as string);
     // dataResponse = res.data ?? {}
-    dataResponse = mocks.productDetailsResponse ?? {}
-}
-  
-    return {
-      props: {
-        params,
-        dataResponse
-      },
-    };
-  };
+    dataResponse =
+      mocks.productsInDb.find((el) => el.id === params?.productId) ?? {};
+  }
 
-const ProductDetails = ({dataResponse}: IProductDetailsPage) => {
+  return {
+    props: {
+      params,
+      dataResponse,
+    },
+  };
+};
+
+const ProductDetails = ({ dataResponse }: IProductDetailsPage) => {
   return <div>{dataResponse.title}</div>;
 };
 

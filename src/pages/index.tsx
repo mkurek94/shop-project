@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       // products: res.data,
-      products: mocks.productsResponse
+      products: mocks.productsInDb
     },
   };
 };

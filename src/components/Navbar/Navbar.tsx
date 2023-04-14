@@ -1,11 +1,10 @@
-import React, { useContext, useMemo } from 'react'
-import { CartContext } from '@/providers/CartProvider';
+import React, { useMemo } from 'react'
 import style from './Navbar.module.css';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useCart } from '@/hooks/useCart';
 
 export const Navbar = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useCart();
 
   const cartQuantity = useMemo(() => {
     let quantity = 0;

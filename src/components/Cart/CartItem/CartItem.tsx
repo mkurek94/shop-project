@@ -1,8 +1,8 @@
-import React, { useMemo, useContext } from "react";
+import React, { useMemo } from "react";
 import { getAvailabilityStatus } from "@/utils/getAvailabilityStatus";
 import { getProductDetails } from "@/utils/getProductDetails";
 import style from "./CartItem.module.css";
-import { CartContext } from "@/providers/CartProvider";
+import { useCart } from "@/hooks/useCart";
 
 interface ICartItemProps {
   productId: string;
@@ -11,7 +11,7 @@ interface ICartItemProps {
 }
 
 export const CartItem = ({ productId, quantity, price }: ICartItemProps) => {
-  const { updateQuantity } = useContext(CartContext);
+  const { updateQuantity } = useCart();
   const product = useMemo(() => {
     return getProductDetails(productId);
   }, [productId]);
@@ -27,7 +27,7 @@ export const CartItem = ({ productId, quantity, price }: ICartItemProps) => {
           />
           <div className={style.title}>
             <h3>{product.title}</h3>
-            <span>{getAvailabilityStatus(product.availibility)}</span>
+            <span>{getAvailabilityStatus(product.availability)}</span>
           </div>
           <div className={style.details}>
             <input

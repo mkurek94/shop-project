@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import styles from "./ProductCard.module.css";
-import { CartContext } from "@/providers/CartProvider";
+import { useCart } from "@/hooks/useCart";
 
 interface IProductCard {
   id: string;
@@ -11,7 +11,7 @@ interface IProductCard {
 }
 
 export const ProductCard = ({ id, title, price }: IProductCard) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
   const router = useRouter();
 
   const addProductToCart = () => {

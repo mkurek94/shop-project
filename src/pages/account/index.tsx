@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { AccountContext } from "@/providers/AccountProvider";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useAccount } from "@/hooks/useAccount";
 
 const Account = () => {
-  const { isLogged, loggedUser } = useContext(AccountContext);
+  const { isLogged, loggedUser } = useAccount();
   const router = useRouter();
 
   useEffect(() => {

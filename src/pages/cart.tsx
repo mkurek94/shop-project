@@ -1,10 +1,10 @@
+import React, { useMemo } from "react";
 import styles from "@/styles/Cart.module.css";
-import { useContext, useMemo } from "react";
-import { CartContext } from "@/providers/CartProvider";
 import { CartItem } from "@/components/Cart/CartItem/CartItem";
+import { useCart } from "@/hooks/useCart";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useCart();
 
   const finalPrice = useMemo(() => {
     let finalPrice = 0;
