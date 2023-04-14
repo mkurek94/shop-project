@@ -22,7 +22,7 @@ export const AccountContext = createContext<IAccountContextValue>(
 );
 
 export const AccountProvier = ({ children }: AccountProviderProps) => {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   const [loggedUser, setLoggedUser] = useState<IAccount>({} as IAccount);
 
   const signIn = useCallback(

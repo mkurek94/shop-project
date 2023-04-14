@@ -3,6 +3,7 @@ import { getAvailabilityStatus } from "@/utils/getAvailabilityStatus";
 import { getProductDetails } from "@/utils/getProductDetails";
 import style from "./CartItem.module.css";
 import { useCart } from "@/hooks/useCart";
+import Image from "next/image";
 
 interface ICartItemProps {
   productId: string;
@@ -20,8 +21,8 @@ export const CartItem = ({ productId, quantity, price }: ICartItemProps) => {
     <>
       {product ? (
         <div className={style.container}>
-          <img
-            src={product.image}
+          <Image
+            src={product.imagePath}
             alt={product.title}
             className={style.image}
           />

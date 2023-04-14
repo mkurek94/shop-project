@@ -1,17 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 80px;
+  width: 100vw;
+  background-color: #fff;
+  border-bottom: 1px solid #EFEFEF;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryItem {
+  padding: 10px;
+}
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    height: 80px;
-    align-items: center;
-    width: 100vw;
-    background-color: #FFF;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .accountDetails {
-    display: flex;
-    width: 200px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
 }

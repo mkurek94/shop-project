@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FDEDED;
+    padding: 50px;
+}
+
+.infoSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.newsletterSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoSection li {
+    list-style: none;
+}

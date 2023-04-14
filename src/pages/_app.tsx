@@ -9,6 +9,7 @@ import createEmotionCache from "@/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { CartProvier } from "@/providers/CartProvider";
 import { AccountProvier } from "@/providers/AccountProvider";
+import { Footer } from "@/components/Footer/Footer";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -38,6 +39,7 @@ export default function App({
           <CartProvier>
             <Navbar />
             <Component {...pageProps} />
+            <Footer/>
           </CartProvier>
         </AccountProvier>
       </ThemeProvider>
