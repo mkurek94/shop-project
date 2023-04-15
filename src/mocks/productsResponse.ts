@@ -1,5 +1,4 @@
 import { IProductDetails } from "@/types/product";
-import product01 from '../assets/images/product01.jpg'
 
 export const productsInDb: IProductDetails[] = [
     {id: "123", title: "Arkham Neckle", price: 97.99, availability: 1, description: "Metal: 18K Gold Plated Stainless Steel\nChain length: 40cm + 5cm extension\nCare: Tarnish-free, Waterproof and Hypoallergenic", imagePath: "https://i.pinimg.com/originals/11/0c/2a/110c2a60553abe827664a224630d3712.jpg"},

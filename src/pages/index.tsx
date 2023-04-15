@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { ProductCard } from "@/components/Products/ProductCard/ProductCard";
 import { GetStaticProps } from "next";
-import * as mocks from "@/mocks/productsResponse";
 import { IProductDetails } from "@/types/product";
 import bannerImage from "../assets/images/banner.webp";
 import social01 from "../assets/images/social01.jpg";
@@ -11,17 +10,17 @@ import social03 from "../assets/images/social03.webp";
 import social04 from "../assets/images/social04.jpg";
 import social05 from "../assets/images/social05.jpg";
 import social06 from "../assets/images/social01.jpg";
+import { getProducts } from "@/services/products";
 
 interface IHomePage {
   products: Array<IProductDetails>;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const res = await getProducts();
+  const res = await getProducts();
   return {
     props: {
-      // products: res.data,
-      products: mocks.productsInDb,
+      products: res.data.products,
     },
   };
 };

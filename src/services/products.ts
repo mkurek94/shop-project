@@ -6,6 +6,6 @@ export const getProductDetails = (productId: string): Promise<AxiosResponse<IPro
     return axios.get(`/api/products/${productId}`);
 }
 
-export const getProducts = (): Promise<AxiosResponse<Array<IProductDetails>>> => {
-    return axios.get('/api/products');
+export const getProducts = (): Promise<AxiosResponse<{products: Array<IProductDetails>}>> => {
+    return axios.get('http://localhost:9999/api/products');
 }
