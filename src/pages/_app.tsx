@@ -1,15 +1,19 @@
 import React from "react";
-import "@/styles/globals.css";
-import { Navbar } from "@/components/Navbar/Navbar";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ThemeProvider } from "@mui/material/styles";
+import '../../i18n';
 import theme from "@/theme";
 import createEmotionCache from "@/createEmotionCache";
+
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
 import { CartProvier } from "@/providers/CartProvider";
 import { AccountProvier } from "@/providers/AccountProvider";
+
+import { Navbar } from "@/components/Navbar/Navbar";
 import { Footer } from "@/components/Footer/Footer";
+
+import "@/styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
 

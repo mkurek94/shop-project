@@ -28,7 +28,7 @@ export const Navbar = () => {
       </div>
       <div className={style.categories}>
         {CATEGORIES.map(category => (
-          <span className={style.categoryItem}>{category.name}</span>
+          <span className={style.categoryItem} key={category.name}>{category.name}</span>
         ))}
       </div>
     </nav>

@@ -4,11 +4,13 @@
     background-color: #EFEFEF;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-.image {
-    height: 150px;
+.imageWrapper {
+    height: 250px;
     width: 100%;
+    position: relative;
 }
 
 .infoWrapper {

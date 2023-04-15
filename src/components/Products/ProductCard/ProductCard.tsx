@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./ProductCard.module.css";
 import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
+import Link from "next/link";
 
 interface IProductCard {
   id: string;
@@ -22,12 +23,20 @@ export const ProductCard = ({ id, title, price, imagePath }: IProductCard) => {
 
   return (
     <div className={styles.container}>
-      <Image src={imagePath} alt="product image" className={styles.image} width={100} height={250} crossOrigin="anonymous"/>
-      <div className={styles.infoWrapper}>
-        <span onClick={() => router.push(`/product/${id}`)}>{title}</span>
-        <span>{price}</span>
+      <div className={styles.imageWrapper}>
+        <Image
+          src={imagePath}
+          alt="product image"
+          className={styles.image}
+          fill
+          crossOrigin="anonymous"
+        />
       </div>
-      <Button variant="contained" onClick={addProductToCart}>Add to cart</Button>
+      <Link href={`/product/${id}`}>{title}</Link>
+      <span>{price}</span>
+      <Button variant="contained" onClick={addProductToCart}>
+        Add to cart
+      </Button>
     </div>
   );
 };

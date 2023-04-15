@@ -1,8 +1,9 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getProductDetails, getProducts } from "../api/products";
+import { getProductDetails, getProducts } from "../../services/products";
 import * as mocks from "@/mocks/productsResponse";
 import { IProductDetails } from "@/types/product";
+import styles from "../../styles/Product.module.css";
 
 interface IProductDetailsPage {
   params: {
@@ -44,7 +45,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const ProductDetails = ({ dataResponse }: IProductDetailsPage) => {
-  return <div>{dataResponse.title}</div>;
+  return (
+    <div className={styles.container}>
+      <h1>{dataResponse.title}</h1>
+    </div>
+  );
 };
 
 export default ProductDetails;

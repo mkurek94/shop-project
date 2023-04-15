@@ -21,11 +21,13 @@ export const CartItem = ({ productId, quantity, price }: ICartItemProps) => {
     <>
       {product ? (
         <div className={style.container}>
+          <div className={style.imageWrapper}>
           <Image
             src={product.imagePath}
             alt={product.title}
-            className={style.image}
+            fill
           />
+          </div>
           <div className={style.title}>
             <h3>{product.title}</h3>
             <span>{getAvailabilityStatus(product.availability)}</span>

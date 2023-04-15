@@ -1,31 +1,72 @@
-import Link from "next/link";
 import React from "react";
-import { useForm } from "react-hook-form";
-import styles from "../../styles/Register.module.css";
+import Link from "next/link";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Trans, useTranslation } from "react-i18next";
+import styles from "../../styles/Auth.module.css";
+import { AUTH_TRANSLATIONS } from "@/constants/translations";
+import { postSignUp } from "@/services/users";
 
 type RegisterForm = {
-    name: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 
-const onSave = (values: RegisterForm) => {
-    console.log(values);
-}
+const onSave: SubmitHandler<RegisterForm> = (values) => {
+  const { email, userName, password, confirmPassword } = values;
+  if (password === confirmPassword) {
+    postSignUp({ email, password, userName });
+  }
+};
 
 const Register = () => {
-  const { handleSubmit, register } = useForm<RegisterForm>();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<RegisterForm>();
+  const { t } = useTranslation();
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h1>Sign up!</h1>
-        <input placeholder="Name" type="text" {...register('name')}/>
-        <input placeholder="E-mail" type="email" {...register('email')}/>
-        <input placeholder="Password" type="password" {...register('password')}/>
-        <input placeholder="Confirm password" type="password" {...register('confirmPassword')}/>
-        <button onClick={handleSubmit(onSave)}>Sign up</button>
-        <p>Already have an account? <Link href="/account/login">Sign in</Link></p>
+        <h1>{t(AUTH_TRANSLATIONS.auth.register.header)}</h1>
+        <input
+          placeholder={t(AUTH_TRANSLATIONS.auth.register.form.name) as string}
+          type="text"
+          // error={
+          //   errors?.userName?.type === "required" &&
+          //   t(AUTH_TRANSLATIONS.auth.required)
+          // }
+          {...register("userName", { required: true })}
+        />
+        <input
+          placeholder={t(AUTH_TRANSLATIONS.auth.register.form.email) as string}
+          type="email"
+          {...register("email", { required: true })}
+        />
+        <input
+          placeholder={
+            t(AUTH_TRANSLATIONS.auth.register.form.password) as string
+          }
+          type="password"
+          {...register("password", { required: true })}
+        />
+        <input
+          placeholder={
+            t(AUTH_TRANSLATIONS.auth.register.form.confirmPassword) as string
+          }
+          type="password"
+          {...register("confirmPassword", { required: true })}
+        />
+        <button onClick={handleSubmit(onSave)}>
+          {t(AUTH_TRANSLATIONS.auth.register.button)}
+        </button>
+        <p>
+          <Trans i18nKey={AUTH_TRANSLATIONS.auth.register.signInInfo}>
+            Already have an account? <Link href="/account/login">Sign in</Link>
+          </Trans>
+        </p>
       </div>
     </div>
   );
