@@ -5,6 +5,7 @@ export interface IProductDetails {
     price: number;
     imagePath: string;
     availability: number;
+    date: string;
 }
 
 export interface ICartProducts extends IProductDetails {
