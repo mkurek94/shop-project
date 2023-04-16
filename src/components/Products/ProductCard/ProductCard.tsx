@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { useRouter } from "next/router";
 import styles from "./ProductCard.module.css";
 import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
@@ -11,18 +10,18 @@ interface IProductCard {
   title: string;
   price: number;
   imagePath: string;
+  key: string;
 }
 
-export const ProductCard = ({ id, title, price, imagePath }: IProductCard) => {
+export const ProductCard = ({ id, title, price, imagePath, key }: IProductCard) => {
   const { addToCart } = useCart();
-  const router = useRouter();
 
   const addProductToCart = () => {
     addToCart(id);
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={key}>
       <div className={styles.imageWrapper}>
         <Image
           src={imagePath}

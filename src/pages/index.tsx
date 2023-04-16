@@ -35,10 +35,10 @@ export default function Home({ products }: IHomePage) {
           <div className={styles.cardsContainer}>
             {products.map((product) => (
               <ProductCard
-                id={product.id}
+                id={product._id}
                 title={product.title}
                 price={product.price}
-                key={product.id}
+                key={product._id}
                 imagePath={product.imagePath}
               />
             ))}
