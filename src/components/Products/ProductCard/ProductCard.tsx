@@ -10,10 +10,9 @@ interface IProductCard {
   title: string;
   price: number;
   imagePath: string;
-  key: string;
 }
 
-export const ProductCard = ({ id, title, price, imagePath, key }: IProductCard) => {
+export const ProductCard = ({ id, title, price, imagePath }: IProductCard) => {
   const { addToCart } = useCart();
 
   const addProductToCart = () => {
@@ -21,7 +20,7 @@ export const ProductCard = ({ id, title, price, imagePath, key }: IProductCard) 
   };
 
   return (
-    <div className={styles.container} key={key}>
+    <div className={styles.container} key={id}>
       <div className={styles.imageWrapper}>
         <Image
           src={imagePath}

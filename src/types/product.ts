@@ -1,13 +1,16 @@
-export interface IProductDetails {
-    _id: string;
-    title: string;
-    description: string;
-    price: number;
-    imagePath: string;
-    availability: number;
-    date: string;
+export interface IProduct {
+  _id: string;
+  title: string;
+  price: number;
+  imagePath: string;
 }
 
+export interface IProductDetails extends IProduct {
+    availability: number;
+    date: string;
+    description: string;
+  }
+
 export interface ICartProducts extends IProductDetails {
-    quantity: number;
+  quantity: number;
 }

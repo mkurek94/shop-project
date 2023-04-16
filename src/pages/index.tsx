@@ -38,7 +38,6 @@ export default function Home({ products }: IHomePage) {
                 id={product._id}
                 title={product.title}
                 price={product.price}
-                key={product._id}
                 imagePath={product.imagePath}
               />
             ))}
